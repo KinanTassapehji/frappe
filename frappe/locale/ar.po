@@ -2942,7 +2942,7 @@ msgstr "عين"
 #. Label of the assign_condition (Code) field in DocType 'Assignment Rule'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 msgid "Assign Condition"
-msgstr "تعيين الشرط"
+msgstr "شرط التكليف"
 
 #: frappe/public/js/frappe/form/sidebar/assign_to.js:186
 msgid "Assign To"
@@ -3033,38 +3033,38 @@ msgstr "تم إنجاز المهمة"
 #. Label of the assignment_days (Table) field in DocType 'Assignment Rule'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 msgid "Assignment Days"
-msgstr "أيام الواجب"
+msgstr "أيام التكليف"
 
 #. Name of a DocType
 #. Label of the assignment_rule (Link) field in DocType 'ToDo'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 #: frappe/desk/doctype/todo/todo.json
 msgid "Assignment Rule"
-msgstr "قاعدة الاحالة"
+msgstr "قاعدة التكليف"
 
 #. Name of a DocType
 #: frappe/automation/doctype/assignment_rule_day/assignment_rule_day.json
 msgid "Assignment Rule Day"
-msgstr "يوم قاعدة الواجب"
+msgstr "يوم قاعدة التكليف"
 
 #. Name of a DocType
 #: frappe/automation/doctype/assignment_rule_user/assignment_rule_user.json
 msgid "Assignment Rule User"
-msgstr "قاعدة مستخدم الاحالة"
+msgstr "مستخدم قاعدة التكليف"
 
 #: frappe/automation/doctype/assignment_rule/assignment_rule.py:55
 msgid "Assignment Rule is not allowed on document type {0}"
-msgstr "قاعدة التعيين غير مسموح بها في نوع المستند {0}"
+msgstr "قاعدة التكليف غير مسموح بها في نوع المستند {0}"
 
 #. Label of the assignment_rules_section (Section Break) field in DocType
 #. 'Assignment Rule'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 msgid "Assignment Rules"
-msgstr "قواعد الاحالة"
+msgstr "قواعد التكليف"
 
 #: frappe/desk/doctype/notification_log/notification_log.py:153
 msgid "Assignment Update on {0}"
-msgstr "تحديث الواجب بتاريخ {0}"
+msgstr "تحديث التكليف بتاريخ {0}"
 
 #: frappe/desk/form/assign_to.py:78
 msgid "Assignment for {0} {1}"
@@ -3684,7 +3684,7 @@ msgstr "خلفية النشاط الوظيفي"
 #: frappe/desk/doctype/system_health_report/system_health_report.json
 #: frappe/public/js/frappe/ui/sidebar/sidebar.js:289
 msgid "Background Jobs"
-msgstr "خلفية عن الخبرات السابقة"
+msgstr "مهام الخلفية"
 
 #. Label of the background_jobs_check (Data) field in DocType 'System Health
 #. Report'
@@ -5293,7 +5293,7 @@ msgstr "إغلاق"
 #. Label of the close_condition (Code) field in DocType 'Assignment Rule'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 msgid "Close Condition"
-msgstr "أغلق الشرط"
+msgstr "شرط الإغلاق"
 
 #: frappe/public/js/form_builder/components/FieldProperties.vue:79
 msgid "Close properties"
@@ -5349,12 +5349,12 @@ msgstr "طريقة تحدي الكود"
 #: frappe/public/js/frappe/ui/sidebar/sidebar.html:44
 #: frappe/public/js/frappe/widgets/base_widget.js:159
 msgid "Collapse"
-msgstr "انهيار"
+msgstr "طي"
 
 #: frappe/public/js/frappe/form/controls/code.js:185
 msgctxt "Shrink code field."
 msgid "Collapse"
-msgstr "انهيار"
+msgstr "طي"
 
 #: frappe/public/js/frappe/views/reports/query_report.js:2143
 #: frappe/public/js/frappe/views/treeview.js:123
@@ -18117,7 +18117,7 @@ msgstr "لم يتم العثور على مستخدم LDAP للبريد الإل�
 #: frappe/public/js/workflow_builder/components/StateNode.vue:47
 #: frappe/public/js/workflow_builder/store.js:51
 msgid "No Label"
-msgstr "لا التسمية"
+msgstr "بدون تسمية"
 
 #: frappe/printing/page/print/print.js:768
 #: frappe/printing/page/print/print.js:849
@@ -21540,7 +21540,7 @@ msgstr "الملكية تعتمد على"
 #. Name of a DocType
 #: frappe/custom/doctype/property_setter/property_setter.json
 msgid "Property Setter"
-msgstr "الملكية واضعة"
+msgstr "ضابط الخصائص"
 
 #. Description of a DocType
 #: frappe/custom/doctype/property_setter/property_setter.json
@@ -29582,7 +29582,7 @@ msgstr "تعذر كتابة تنسيق الملف {0}"
 #. Label of the unassign_condition (Code) field in DocType 'Assignment Rule'
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 msgid "Unassign Condition"
-msgstr "إلغاء تعيين الشرط"
+msgstr "شرط إلغاء التكليف"
 
 #: frappe/app.py:399
 msgid "Uncaught Exception"
