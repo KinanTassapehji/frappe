@@ -138,13 +138,13 @@ msgid ""
 "4 - very unguessable: strong protection from offline slow-hash scenario."
 msgstr ""
 "0 - يمكن تخمينها للغاية: كلمة مرور محفوفة بالمخاطر.\n"
-"<ر>\n"
+"<br>\n"
 "1 - قابل للتخمين للغاية: الحماية من الهجمات المخنوقة عبر الإنترنت. \n"
-"<ر>\n"
+"<br>\n"
 "2 - يمكن تخمينه إلى حد ما: الحماية من الهجمات غير المقيدة عبر الإنترنت.\n"
-"<ر>\n"
+"<br>\n"
 "3 - لا يمكن تخمينه بأمان: حماية معتدلة من سيناريو التجزئة البطيئة في وضع عدم الاتصال.\n"
-"<ر>\n"
+"<br>\n"
 "4 - لا يمكن تخمينه على الإطلاق: حماية قوية من سيناريو التجزئة البطيئة في وضع عدم الاتصال."
 
 #. Description of the 'Priority' (Int) field in DocType 'Web Page'
@@ -293,7 +293,7 @@ msgid ""
 msgstr ""
 "<a href=\"https://docs.frappe.io/framework/user/en/api/rest#1-token-based-authentication\" target=\"_blank\">\n"
 "  انقر هنا للتعرف على المصادقة المستندة إلى الرمز المميز\n"
-"</أ>"
+"</a>"
 
 #: frappe/public/js/frappe/widgets/widget_dialog.js:601
 msgid "<b>{0}</b> is not a valid URL"
@@ -390,15 +390,15 @@ msgstr ""
 "    <ul>\n"
 "        <li>كل بادئة سلسلة على سطر جديد.</li>\n"
 "        <li>الأحرف الخاصة المسموح بها هي \"/\" و\"-\"</li>\n"
-"        <لي>\n"
+"        <li>\n"
 "            اختياريًا، قم بتعيين عدد الأرقام في السلسلة باستخدام النقطة (.)\n"
 "            متبوعة بالعلامات (#). على سبيل المثال، \".####\" يعني أن السلسلة\n"
 "            سيكون لها أربعة أرقام. الافتراضي هو خمسة أرقام.\n"
-"        </لي>\n"
-"        <لي>\n"
+"        </li>\n"
+"        <li>\n"
 "            يمكنك أيضًا استخدام المتغيرات في اسم السلسلة عن طريق وضعها\n"
 "            بين (.) النقطتين\n"
-"            <ر>\n"
+"            <br>\n"
 "            المتغيرات المدعومة:\n"
 "            <ul>\n"
 "                <li><code>.YYYY.</code> - السنة مكونة من 4 أرقام</li>\n"
@@ -406,14 +406,14 @@ msgstr ""
 "                <li><code>.MM.</code> - شهر</li>\n"
 "                <li><code>.DD.</code> - يوم من الشهر</li>\n"
 "                <li><code>.WW.</code> - الأسبوع من السنة</li>\n"
-"                <لي>\n"
+"                <li>\n"
 "                    <code>.{fieldname}.</code> - اسم الحقل في المستند، على سبيل المثال:\n"
 "                    <code>الفرع</code>\n"
-"                </لي>\n"
+"                </li>\n"
 "                <li><code>.FY.</code> - السنة المالية (يتطلب تثبيت ERPNext)</li>\n"
 "                <li><code>.ABBR.</code> - اختصار الشركة (يتطلب تثبيت ERPNext)</li>\n"
 "            </ul>\n"
-"        </لي>\n"
+"        </li>\n"
 "    </ul>\n"
 "    أمثلة:\n"
 "    <ul>\n"
@@ -423,7 +423,7 @@ msgstr ""
 "        <li>INV-.YYYY.-.{branch}.-.MM.-.####</li>\n"
 "    </ul>\n"
 "</div>\n"
-"<ر>"
+"<br>"
 
 #. Content of the 'Custom HTML Help' (HTML) field in DocType 'Print Format'
 #: frappe/printing/doctype/print_format/print_format.json
@@ -465,12 +465,12 @@ msgstr ""
 "\n"
 "<p>1. محاذاة الأعداد الصحيحة إلى اليسار</p>\n"
 "\n"
-"<pre><code>[data-fieldtype=\"Int\"] .value { محاذاة النص: يسار؛ </كود></قبل>\n"
+"<pre><code>[data-fieldtype=\"Int\"] .value { text-align: left؛ </code></pre>\n"
 "\n"
 "<p>1. أضف حدودًا إلى الأقسام باستثناء القسم الأخير</p>\n"
 "\n"
 "<pre><code>.section-break { الحشو: 30px 0px; الحد السفلي: 1 بكسل صلب #eee؛ }\n"
-".فاصل القسم:الطفل الأخير { الحشو السفلي: 0px؛ الحد السفلي: 0px؛  </كود></قبل>"
+".section-break:last-child { padding-bottom: 0px؛ border-bottom: 0px؛  </code></pre>"
 
 #. Content of the 'Print Format Help' (HTML) field in DocType 'Print Format'
 #: frappe/printing/doctype/print_format/print_format.json
@@ -544,19 +544,19 @@ msgid ""
 "</table>\n"
 msgstr ""
 "<h3>مساعدة تنسيق الطباعة</h3>\n"
-"<ساعة>\n"
+"<hr>\n"
 "<h4>المقدمة</h4>\n"
 "<p>يتم عرض تنسيقات الطباعة على جانب الخادم باستخدام لغة Jinja Templating. تتمتع جميع النماذج بإمكانية الوصول إلى كائن <code>doc</code> الذي يحتوي على معلومات حول المستند الذي يتم تنسيقه. يمكنك أيضًا الوصول إلى الأدوات المساعدة الشائعة عبر وحدة <code>frappe</code>.</p>\n"
 "<p>للتصميم، يتم توفير إطار عمل Boostrap CSS ويمكنك الاستمتاع بمجموعة كاملة من الفئات.</p>\n"
-"<ساعة>\n"
+"<hr>\n"
 "<h4>المراجع</h4>\n"
 "<ol>\n"
 "\t<li><a href=\"http://jinja.pocoo.org/docs/templates/\" target=\"_blank\">لغة قوالب الجينجا</a></li>\n"
 "\t<li><a href=\"http://getbootstrap.com\" target=\"_blank\">إطار عمل Bootstrap CSS</a></li>\n"
 "</ol>\n"
-"<ساعة>\n"
+"<hr>\n"
 "<h4>مثال</h4>\n"
-"<pre><code><h3>{{ doc.select_print_heading أو \"الفاتورة\" }}</h3>\n"
+"<pre><code><h3>{{ doc.select_print_heading or \"الفاتورة\" }}</h3>\n"
 "<div class=\"row\">\n"
 "\t<div class=\"col-md-3 text-right\">اسم العميل</div>\n"
 "\t<div class=\"col-md-9\">{{ doc.customer_name }}</div>\n"
@@ -565,50 +565,50 @@ msgstr ""
 "\t<div class=\"col-md-3 text-right\">التاريخ</div>\n"
 "\t<div class=\"col-md-9\">{{ doc.get_formatted(\"invoice_date\") }}</div>\n"
 "</div>\n"
-"<فئة الجدول = \"جدول الجدول بحدود\">\n"
-"\t<الجسم>\n"
-"\t\t<تر>\n"
-"\t\t\t<th>الاب</th>\n"
+"<table class=\"table table-bordered\">\n"
+"\t<tbody>\n"
+"\t\t<tr>\n"
+"\t\t\t<th>الرقم</th>\n"
 "\t\t\t<th>اسم العنصر</th>\n"
 "\t\t\t<th>الوصف</th>\n"
 "\t\t\t<th class=\"text-right\">الكمية</th>\n"
 "\t\t\t<th class=\"text-right\">السعر</th>\n"
 "\t\t\t<th class=\"text-right\">المبلغ</th>\n"
 "\t\t</tr>\n"
-"\t\t{%- للصف في doc.items -%}\n"
-"\t\t<تر>\n"
-"\t\t\t<td style=\"width: 3%;\">{{row.idx }}</td>\n"
+"\t\t{%- for row in doc.items -%}\n"
+"\t\t<tr>\n"
+"\t\t\t<td style=\"width: 3%;\">{{ row.idx }}</td>\n"
 "\t\t\t<td style=\"width: 20%;\">\n"
-"\t\t\t\t{{ صف.اسم_العنصر }}\n"
-"\t\t\t\t{% إذا كان Row.item_code != Row.item_name -%}\n"
-"\t\t\t\t<br>رمز الصنف: {{row.item_code}}\n"
-"\t\t\t\t{%- إنديف %}\n"
-"\t\t\t</TD>\n"
+"\t\t\t\t{{ row.item_name }}\n"
+"\t\t\t\t{% if row.item_code != row.item_name -%}\n"
+"\t\t\t\t<br>رمز الصنف: {{ row.item_code }}\n"
+"\t\t\t\t{%- endif %}\n"
+"\t\t\t</td>\n"
 "\t\t\t<td style=\"width: 37%;\">\n"
-"\t\t\t\t<div style=\"border: 0px;\">{{ صف.وصف }}</div></td>\n"
-"\t\t\t<td style=\"width: 10%; text-align: right;\">{{ Row.qty }} {{ Row.uom or Row.stock_uom }}</td>\n"
+"\t\t\t\t<div style=\"border: 0px;\">{{ row.description }}</div></td>\n"
+"\t\t\t<td style=\"width: 10%; text-align: right;\">{{ row.qty }} {{ row.uom or row.stock_uom }}</td>\n"
 "\t\t\t<td style=\"width: 15%; text-align: right;\">{{\n"
-"\t\t\t\tRow.get_formatted(\"rate\"، doc) }}</td>\n"
+"\t\t\t\trow.get_formatted(\"rate\", doc) }}</td>\n"
 "\t\t\t<td style=\"width: 15%; text-align: right;\">{{\n"
-"\t\t\t\trow.get_formatted(\"amount\"، doc) }}</td>\n"
+"\t\t\t\trow.get_formatted(\"amount\", doc) }}</td>\n"
 "\t\t</tr>\n"
-"\t\t{%- النهاية لـ -%}\n"
+"\t\t{%- endfor -%}\n"
 "\t</tbody>\n"
 "</table></code></pre>\n"
-"<ساعة>\n"
+"<hr>\n"
 "<h4>الوظائف المشتركة</h4>\n"
-"<فئة الجدول = \"جدول الجدول بحدود\">\n"
-"\t<الجسم>\n"
-"\t\t<تر>\n"
+"<table class=\"table table-bordered\">\n"
+"\t<tbody>\n"
+"\t\t<tr>\n"
 "\t\t\t<td style=\"width: 30%;\"><code>doc.get_formatted(\"[fieldname]\", [parent_doc])</code></td>\n"
 "\t\t\t<td>احصل على قيمة المستند بتنسيق التاريخ والعملة وما إلى ذلك. قم بتمرير <code>doc</code> الأصلي لحقول نوع العملة.</td>\n"
 "\t\t</tr>\n"
-"\t\t<تر>\n"
+"\t\t<tr>\n"
 "\t\t\t<td style=\"width: 30%;\"><code>frappe.db.get_value(\"[doctype]\", \"[name]\", \"fieldname\")</code></td>\n"
 "\t\t\t<td>احصل على قيمة من مستند آخر.</td>\n"
 "\t\t</tr>\n"
 "\t</tbody>\n"
-"</الجدول>"
+"</table>"
 
 #. Description of the 'Template' (Code) field in DocType 'Address Template'
 #: frappe/contacts/doctype/address_template/address_template.json
@@ -629,12 +629,12 @@ msgid ""
 msgstr ""
 "<h4>القالب الافتراضي</h4>\n"
 "<p>ستكون استخدامات <a href=\"http://jinja.pocoo.org/docs/templates/\">Jinja Templating</a> وجميع حقول العنوان (بما في ذلك الحقول المخصصة إن وجدت) متاحة</p>\n"
-"<pre><code>{{ عنوان_line1 }<br>\n"
-"{% if Address_line2 %}{{ Address_line2 }}<br>{% endif -%}\n"
-"{{ مدينة }<br>\n"
-"{% إذا الحالة %}{{ الحالة }}<br>{% endif -%}\n"
-"{% if pincode %} رقم التعريف الشخصي: {{ pincode }}<br>{% endif -%}\n"
-"{{ الدولة }<br>\n"
+"<pre><code>{{ address_line1 }}<br>\n"
+"{% if address_line2 %}{{ address_line2 }}<br>{% endif -%}\n"
+"{{ city }}<br>\n"
+"{% if state %}{{ state }}<br>{% endif -%}\n"
+"{% if pincode %} الرمز البريدي: {{ pincode }}<br>{% endif -%}\n"
+"{{ country }}<br>\n"
 "{% if phone %}الهاتف: {{ phone }}<br>{% endif -%}\n"
 "{% if fax %}الفاكس: {{ fax }}<br>{% endif -%}\n"
 "{% if email_id %}البريد الإلكتروني: {{ email_id }}<br>{% endif -%}\n"
@@ -718,9 +718,9 @@ msgstr ""
 "<p>لقد تجاوزت المعاملة {{ doc.name }} تاريخ الاستحقاق. يرجى اتخاذ الإجراءات اللازمة.</p>\n"
 "\n"
 "<!--إظهار التعليق الأخير -->\n"
-"{% إذا كانت التعليقات %}\n"
+"{% if comments %}\n"
 "آخر تعليق: {{ comments[-1].comment }} بواسطة {{ comments[-1].by }}\n"
-"{% نهاية %}\n"
+"{% endif %}\n"
 "\n"
 "<h4>التفاصيل</h4>\n"
 "\n"
@@ -728,7 +728,7 @@ msgstr ""
 "<li>العميل: {{ doc.customer }}\n"
 "<li>المبلغ: {{ doc.grand_total }}\n"
 "</ul>\n"
-"</قبل>"
+"</pre>"
 
 #. Content of the 'html_7' (HTML) field in DocType 'Notification'
 #: frappe/email/doctype/notification/notification.json
@@ -750,7 +750,7 @@ msgid ""
 msgstr ""
 "<p><strong>أمثلة الحالة:</strong></p>\n"
 "<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total > 40000\n"
-"</قبل>"
+"</pre>"
 
 #. Content of the 'Condition description' (HTML) field in DocType 'Web Form'
 #: frappe/website/doctype/web_form/web_form.json
@@ -819,7 +819,7 @@ msgid ""
 "/ - Step values\n"
 "</pre>\n"
 msgstr ""
-"<السابق>* * * * *\n"
+"<pre>* * * * *\n"
 "┬ ┬ ┬ ┬ ┬\n"
 "│ │ │ │ │\n"
 "│ │ │ │ └ يوم من الأسبوع (0 - 6) (0 هو الأحد)\n"
@@ -832,7 +832,7 @@ msgstr ""
 "\n"
 "* - أي قيمة\n"
 "/ - قيم الخطوة\n"
-"</قبل>"
+"</pre>"
 
 #. Content of the 'Example' (HTML) field in DocType 'Workflow Transition'
 #: frappe/workflow/doctype/workflow_transition/workflow_transition.json
@@ -967,7 +967,7 @@ msgid ""
 "The value of the should change on any update of the client software with the same Software ID."
 msgstr ""
 "سلسلة معرف الإصدار لبرنامج العميل.\n"
-"<ر>\n"
+"<br>\n"
 "يجب أن تتغير قيمة the عند أي تحديث لبرنامج العميل بنفس معرف البرنامج."
 
 #: frappe/utils/password_strength.py:169
@@ -3646,7 +3646,7 @@ msgstr "العودة"
 
 #: frappe/templates/pages/integrations/gcalendar-success.html:13
 msgid "Back to Desk"
-msgstr "العودة الى المكتب"
+msgstr "العودة إلى المكتب"
 
 #: frappe/www/404.html:26
 msgid "Back to Home"
@@ -4808,7 +4808,7 @@ msgid ""
 "\n"
 "Warning: Incorrectly updating counters can prevent documents from getting created."
 msgstr ""
-"تغيير رقم التسلسل البداية/الحالية لسلسلة موجودة. <ر>\n"
+"تغيير رقم التسلسل البداية/الحالية لسلسلة موجودة. <br>\n"
 "\n"
 "تحذير: قد يؤدي تحديث العدادات بشكل غير صحيح إلى منع إنشاء المستندات."
 
@@ -5806,7 +5806,7 @@ msgid ""
 msgstr ""
 "قم بتكوين كيفية تسمية المستندات المعدلة.<br>\n"
 "\n"
-"السلوك الافتراضي هو اتباع عداد التعديل الذي يضيف رقمًا إلى نهاية الاسم الأصلي يشير إلى النسخة المعدلة. <ر>\n"
+"السلوك الافتراضي هو اتباع عداد التعديل الذي يضيف رقمًا إلى نهاية الاسم الأصلي يشير إلى النسخة المعدلة. <br>\n"
 "\n"
 "ستؤدي التسمية الافتراضية إلى جعل المستند المعدل يتصرف مثل المستندات الجديدة."
 
@@ -10607,7 +10607,7 @@ msgstr "فاكس"
 
 #: frappe/public/js/frappe/form/templates/form_sidebar.html:51
 msgid "Feedback"
-msgstr "ردود الفعل"
+msgstr "الملاحظات"
 
 #: frappe/desk/page/setup_wizard/install_fixtures.py:29
 msgid "Female"
@@ -10800,8 +10800,7 @@ msgstr "يجب أن يكون اسم الحقل المسمى {0} موجودًا �
 
 #: frappe/database/schema.py:131 frappe/database/schema.py:408
 msgid "Fieldname is limited to 64 characters ({0})"
-msgstr ""
-"اسم الحقل محدد ب 64 حرف<br>Fieldname is limited to 64 characters ({0})"
+msgstr "اسم الحقل محدد ب 64 حرف"
 
 #: frappe/custom/doctype/custom_field/custom_field.py:198
 msgid "Fieldname not set for Custom Field"
@@ -14096,7 +14095,7 @@ msgstr "انتر"
 #. Label of the interest (Small Text) field in DocType 'User'
 #: frappe/core/doctype/user/user.json
 msgid "Interests"
-msgstr "الإهتمامات او الفوائد"
+msgstr "الإهتمامات أو الفوائد"
 
 #. Option for the 'Level' (Select) field in DocType 'Help Article'
 #: frappe/website/doctype/help_article/help_article.json
@@ -14874,9 +14873,7 @@ msgstr "نوع العنصر"
 
 #: frappe/utils/nestedset.py:229
 msgid "Item cannot be added to its own descendants"
-msgstr ""
-"البند لا يمكن أن تضاف الى أحفادها<br>Item cannot be added to its own "
-"descendants"
+msgstr "البند لا يمكن أن تضاف إلى أحفادها"
 
 #. Label of the items (Table) field in DocType 'Workspace Sidebar'
 #: frappe/desk/doctype/workspace_sidebar/workspace_sidebar.json
@@ -14999,7 +14996,7 @@ msgstr "انضم إلى مؤتمر فيديو مع {0}"
 #: frappe/public/js/frappe/form/toolbar.js:431
 #: frappe/public/js/frappe/form/toolbar.js:866
 msgid "Jump to field"
-msgstr "القفز الى الميدان"
+msgstr "القفز إلى الميدان"
 
 #: frappe/public/js/frappe/utils/number_systems.js:17
 #: frappe/public/js/frappe/utils/number_systems.js:31
@@ -16797,9 +16794,7 @@ msgstr "دمج مع الموجود"
 #: frappe/utils/nestedset.py:320
 msgid ""
 "Merging is only possible between Group-to-Group or Leaf Node-to-Leaf Node"
-msgstr ""
-"الدمج مسموح فقط بين مجموعة ومجموعة أو فرع وفرع<br>Merging is only possible "
-"between Group-to-Group or Leaf Node-to-Leaf Node"
+msgstr "الدمج مسموح فقط بين مجموعة ومجموعة أو فرع وفرع"
 
 #. Label of the message (Text) field in DocType 'Auto Repeat'
 #. Label of the content (Text Editor) field in DocType 'Activity Log'
@@ -17343,7 +17338,7 @@ msgstr "الانتقال إلى"
 
 #: frappe/core/doctype/communication/communication.js:104
 msgid "Move To Trash"
-msgstr "ارسال الى سلة المحذوفات"
+msgstr "ارسال إلى سلة المحذوفات"
 
 #: frappe/public/js/form_builder/components/Section.vue:295
 msgid "Move current and all subsequent sections to a new tab"
@@ -17820,7 +17815,7 @@ msgid ""
 "Public clients are restricted by default."
 msgstr ""
 "قائمة مفصولة بسطر جديد لعناوين URL العامة المسموح بها للعملاء (على سبيل المثال <code>https://frappe.io</code>)، أو <code>*</code> لقبول الكل.\n"
-"<ر>\n"
+"<br>\n"
 "يتم تقييد العملاء العامين بشكل افتراضي."
 
 #. Description of the 'Scopes Supported' (Small Text) field in DocType 'OAuth
@@ -18337,7 +18332,7 @@ msgstr "عدد الرسائل القصيرة المرسلة"
 
 #: frappe/__init__.py:622 frappe/client.py:113 frappe/client.py:155
 msgid "No permission for {0}"
-msgstr "لا يوجد صلاحية لـ {0}<br>No permission for {0}"
+msgstr "لا يوجد صلاحية لـ {0}"
 
 #: frappe/public/js/frappe/form/form.js:1145
 msgctxt "{0} = verb, {1} = object"
@@ -19634,8 +19629,7 @@ msgstr "إعدادات الصادرة"
 
 #: frappe/email/doctype/email_domain/email_domain.py:33
 msgid "Outgoing email account not correct"
-msgstr ""
-"البريد الالكتروني الصادر غير صحيح<br>Outgoing email account not correct"
+msgstr "البريد الالكتروني الصادر غير صحيح"
 
 #. Option for the 'Service' (Select) field in DocType 'Email Account'
 #: frappe/email/doctype/email_account/email_account.json
@@ -25319,7 +25313,7 @@ msgstr ""
 "\t\"نوع الحقل\": \"العملة\"،\n"
 "\t\"route_options\": {\"from_date\": \"23-05-2023\"},\n"
 "\t\"المسار\": [\"تقرير الاستعلام\"، \"المستندات المسموح بها للمستخدم\"]\n"
-"</كود></قبل>"
+"</code></pre>"
 
 #: frappe/contacts/doctype/address_template/address_template.py:33
 msgid "Setting this Address Template as default as there is no other default"
@@ -27695,7 +27689,7 @@ msgid ""
 msgstr ""
 "معرف العميل الذي تم الحصول عليه من Google Cloud Console ضمن <a href=\"https://console.cloud.google.com/apis/credentials\">\n"
 "\"واجهات برمجة التطبيقات والخدمات\" > \"بيانات الاعتماد\"\n"
-"</أ>"
+"</a>"
 
 #: frappe/email/doctype/notification/notification.py:224
 msgid "The Condition '{0}' is invalid"
@@ -27748,7 +27742,7 @@ msgid ""
 msgstr ""
 "تم الحصول على مفتاح واجهة برمجة تطبيقات المتصفح من Google Cloud Console ضمن <a href=\"https://console.cloud.google.com/apis/credentials\">\n"
 "\"واجهات برمجة التطبيقات والخدمات\" > \"بيانات الاعتماد\"\n"
-"</أ>"
+"</a>"
 
 #: frappe/database/database.py:475
 msgid "The changes have been reverted."
@@ -27906,7 +27900,7 @@ msgid ""
 msgstr ""
 "رقم المشروع الذي تم الحصول عليه من Google Cloud Console ضمن <a href=\"https://console.cloud.google.com/iam-admin/settings\">\n"
 "\"IAM والمسؤول\" > \"الإعدادات\"\n"
-"</أ>"
+"</a>"
 
 #: frappe/desk/utils.py:106
 msgid ""
@@ -28768,9 +28762,9 @@ msgid ""
 msgstr ""
 "لإضافة قيم ديناميكية من المستند، استخدم علامات jinja مثل\n"
 "\n"
-"<ديف>\n"
+"<div>\n"
 "<pre><code>{ \"id\": \"{{ doc.name }}\" }</code>\n"
-"</قبل>\n"
+"</pre>\n"
 "</div>"
 
 #: frappe/email/doctype/auto_email_report/auto_email_report.py:109
@@ -29137,7 +29131,7 @@ msgid ""
 "Note: If you're sending to multiple recipients, even if 1 recipient reads the email, it'll be considered \"Opened\""
 msgstr ""
 "تتبع ما إذا كان المستلم قد فتح بريدك الإلكتروني.\n"
-"<ر>\n"
+"<br>\n"
 "ملاحظة: إذا كنت ترسل إلى عدة مستلمين، حتى إذا قرأ مستلم واحد البريد الإلكتروني، فسيتم اعتباره \"مفتوحًا\""
 
 #. Description of a DocType
@@ -29632,7 +29626,7 @@ msgid ""
 "<b>Should remain same</b> across multiple versions or updates of the software."
 msgstr ""
 "المعرف الفريد الذي تم تعيينه بواسطة مطور العميل يستخدم لتحديد برنامج العميل المراد تسجيله ديناميكيًا.\n"
-"<ر>\n"
+"<br>\n"
 "<b>يجب أن يظل كما هو</b> عبر إصدارات أو تحديثات متعددة للبرنامج."
 
 #: frappe/website/report/website_analytics/website_analytics.js:60
@@ -30105,8 +30099,7 @@ msgstr "المستخدم"
 
 #: frappe/core/doctype/has_role/has_role.py:25
 msgid "User '{0}' already has the role '{1}'"
-msgstr ""
-"المستخدم{0} يملك بالفعل الدور {1}<br>User '{0}' already has the role '{1}'"
+msgstr "المستخدم{0} يملك بالفعل الدور {1}"
 
 #. Name of a DocType
 #: frappe/core/doctype/report/user_activity_report.json
@@ -32137,7 +32130,7 @@ msgstr "ليس لديك إذن للوصول إلى {0} DocType."
 
 #: frappe/utils/response.py:291 frappe/utils/response.py:295
 msgid "You don't have permission to access this file"
-msgstr "لا تتوفر لديك الصلاحية للوصول الى هذا الملف"
+msgstr "لا تتوفر لديك الصلاحية للوصول إلى هذا الملف"
 
 #: frappe/desk/query_report.py:50
 msgid "You don't have permission to get a report on: {0}"
@@ -32234,9 +32227,7 @@ msgstr "عليك أن تكون في وضع المطور لتعديل نموذج 
 msgid ""
 "You need to be logged in and have System Manager Role to be able to access "
 "backups."
-msgstr ""
-"يتوجب عليك تسجيل الدخول بصلاحية مدير النظام حتي تتمكن من الوصول الى النسخ "
-"الأحتياطية."
+msgstr "يتوجب عليك تسجيل الدخول بصلاحية مدير النظام حتي تتمكن من الوصول إلى النسخ الأحتياطية."
 
 #: frappe/www/me.py:13 frappe/www/third_party_apps.py:10
 msgid "You need to be logged in to access this page"
