@@ -49,11 +49,10 @@ frappe.search.AwesomeBar = class AwesomeBar {
 					<span>${__("to select")}</span>
 				</span>
 				<span class="help-item-navigate">
-					<span class="help-item help-item-escape">${__("esc")}</span>
+					<span class="help-item help-item-escape">${frappe.utils.is_mac() ? "⌘K" : "Ctrl+K"}</span>
 					<span>${__("to close")}</span>
 				</span>
 			</div>
-			<div class="pointer">${frappe.utils.icon("circle-question-mark")}</div>
 		</div>`;
 
 		search_modal.find(".modal-body").css("padding", "0").html(search_modal_body);
@@ -63,11 +62,12 @@ frappe.search.AwesomeBar = class AwesomeBar {
 			.removeClass("hide")
 			.addClass("cool-awesomebar-modal-footer")
 			.html(search_modal_footer);
-		search_modal.find(".pointer").on("click", () => {
-			this.show_help();
-		});
 
 		$search_element.on("click", () => {
+			if ($(search_modal).hasClass("show")) {
+				search_modal.modal("hide");
+				return;
+			}
 			search_modal.modal("show");
 
 			if (is_event_listeners_added) return;
@@ -216,23 +216,6 @@ frappe.search.AwesomeBar = class AwesomeBar {
 			if (e.key == "Escape") {
 				$input.trigger("blur");
 			}
-		});
-	}
-
-	show_help() {
-		const help_data = [
-			[__("Create a new record"), __("new type of document")],
-			[__("List a document type"), __("document type..., e.g. customer")],
-			[__("Search in a document type"), __("text in document type")],
-			[__("Tags"), __("tag name..., e.g. #tag")],
-			[__("Open a module or tool"), __("module name...")],
-			[__("Open in new tab"), frappe.utils.is_mac() ? "⌘ + Enter" : "Ctrl + Enter"],
-			[__("Calculate"), __("e.g. (55 + 434) / 4")],
-		];
-		frappe.msgprint({
-			message: help_data,
-			title: __("Search Help"),
-			as_table: true,
 		});
 	}
 

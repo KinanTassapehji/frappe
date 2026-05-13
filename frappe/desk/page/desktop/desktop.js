@@ -274,7 +274,6 @@ class DesktopPage {
 		this.setup_navbar();
 		this.setup_awesomebar();
 		this.handle_route_change();
-		this.setup_edit_button();
 	}
 	setup_edit_button() {
 		if (this.edit_mode || frappe.is_mobile()) return;
@@ -301,7 +300,6 @@ class DesktopPage {
 					return !me.edit_mode;
 				},
 				onClick: function () {
-					me.$desktop_edit_button.hide();
 					frappe.new_desktop_icons = JSON.parse(JSON.stringify(frappe.desktop_icons));
 					me.start_editing_layout();
 				},
@@ -512,32 +510,34 @@ class DesktopPage {
 		if (frappe.boot.desk_settings.search_bar) {
 			let awesome_bar = new frappe.search.AwesomeBar();
 			awesome_bar.setup(".desktop-search-wrapper #desktop-navbar-modal-search");
+
+			frappe.ui.keys.add_shortcut({
+				shortcut: "ctrl+g",
+				action: function (e) {
+					$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
+					e.preventDefault();
+					return false;
+				},
+				description: __("Open Awesomebar"),
+				ignore_inputs: true,
+			});
+			frappe.ui.keys.add_shortcut({
+				shortcut: "ctrl+k",
+				action: function (e) {
+					$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
+					e.preventDefault();
+					return false;
+				},
+				description: __("Toggle Awesomebar"),
+				ignore_inputs: true,
+			});
 		}
-		frappe.ui.keys.add_shortcut({
-			shortcut: "ctrl+g",
-			action: function (e) {
-				$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
-				e.preventDefault();
-				return false;
-			},
-			description: __("Open Awesomebar"),
-		});
-		frappe.ui.keys.add_shortcut({
-			shortcut: "ctrl+k",
-			action: function (e) {
-				$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
-				e.preventDefault();
-				return false;
-			},
-			description: __("Open Awesomebar"),
-		});
 	}
 	handle_route_change() {
 		const me = this;
 		frappe.router.on("change", function () {
 			if (frappe.get_route()[0] == "desktop" || frappe.get_route()[0] == "") {
 				me.setup_navbar();
-				me.setup_edit_button();
 			} else {
 				$(".navbar").show();
 				frappe.desktop_utils.close_desktop_modal();
@@ -1022,7 +1022,8 @@ class DesktopIcon {
 	setup_click() {
 		const me = this;
 		if (this.child_icons?.length && (this.icon_type == "App" || this.icon_type == "Folder")) {
-			$(this.icon).on("click", () => {
+			$(this.icon).on("click", (event) => {
+				event.preventDefault();
 				let modal = frappe.desktop_utils.create_desktop_modal(me);
 				modal.setup(me.icon_title, me.child_icons, 4);
 				let $title = modal.modal.find(".modal-title");
@@ -1070,11 +1071,6 @@ class DesktopIcon {
 			this.folder_grid = new DesktopIconGrid({
 				wrapper: this.folder_wrapper,
 				icons_data: this.child_icons,
-				row_size: 3,
-				page_size: {
-					row: 3,
-					col: 3,
-				},
 				in_folder: true,
 				in_modal: false,
 				no_dragging: true,
@@ -1150,6 +1146,11 @@ class DesktopModal {
 			this.modal.find(".modal-dialog").attr("id", "desktop-modal");
 			this.modal.find(".modal-body").addClass("desktop-modal-body");
 			this.$child_icons_wrapper = this.modal.find(".desktop-modal-body");
+			this.modal.find(".desktop-modal-heading").on("click", (e) => {
+				if (!$(e.target).closest(".modal-title").length) {
+					this.hide();
+				}
+			});
 		} else {
 			this.modal.find(".modal-title").text(icon_title);
 			$(this.modal.find(".modal-body")).empty();
@@ -1198,7 +1199,7 @@ class IconsPane {
 			return;
 		}
 		this.wrapper.append(
-			"<span style='margin-top: 10px; margin-bottom: 20px'>Removed Icons</span>"
+			`<span style='margin-top: 10px; margin-bottom: 20px'>${__("Removed Icons")}</span>`
 		);
 		this.grid = new DesktopIconGrid({
 			name: "hidden-icons-grid",

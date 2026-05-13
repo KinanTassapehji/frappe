@@ -26,7 +26,7 @@ frappe.ui.form.ControlInput = class ControlInput extends frappe.ui.form.Control 
 					</div>
 					<div class="control-input-wrapper">
 						<div class="control-input"></div>
-						<div class="control-value like-disabled-input" style="display: none;"></div>
+						<div class="control-value like-disabled-input hide"></div>
 						<div class="help-box small text-extra-muted hide"></div>
 					</div>
 				</div>
@@ -115,8 +115,8 @@ frappe.ui.form.ControlInput = class ControlInput extends frappe.ui.form.Control 
 			let is_fetch_from_read_only = me.read_only_because_of_fetch_from();
 
 			if (me.can_write() && !is_fetch_from_read_only) {
-				me.disp_area && $(me.disp_area).toggle(false);
-				$(me.input_area).toggle(true);
+				me.disp_area && $(me.disp_area).addClass("hide");
+				$(me.input_area).removeClass("hide");
 				me.$input && me.$input.prop("disabled", false);
 				make_input();
 				update_input();
@@ -125,10 +125,10 @@ frappe.ui.form.ControlInput = class ControlInput extends frappe.ui.form.Control 
 					make_input();
 					update_input();
 				} else {
-					$(me.input_area).toggle(false);
+					$(me.input_area).addClass("hide");
 					if (me.disp_area) {
 						me.set_disp_area(me.value);
-						$(me.disp_area).toggle(true);
+						$(me.disp_area).removeClass("hide");
 					}
 				}
 				me.$input && me.$input.prop("disabled", true);
@@ -203,8 +203,8 @@ frappe.ui.form.ControlInput = class ControlInput extends frappe.ui.form.Control 
 	}
 	show_description_on_click() {
 		const me = this;
-		if (this.df.show_description_on_click) {
-			let info_card = new InfoCard({
+		if (this.df.show_description_on_click && !this._doc_url_info_card) {
+			new InfoCard({
 				label_area: this.label_area,
 				label_span: this.label_span,
 				df: this.df,
@@ -223,16 +223,13 @@ frappe.ui.form.ControlInput = class ControlInput extends frappe.ui.form.Control 
 		)
 			return;
 
-		let $help = this.$wrapper.find("span.help");
-		$help.empty();
-
-		$(`<a
-			href="${frappe.utils.escape_html(this.df.documentation_url)}"
-			target="_blank"
-			title="${frappe.utils.escape_html(__("Documentation"))}"
-		>
-			${frappe.utils.icon("help", "sm")}
-		</a>`).appendTo($help);
+		if (!this._doc_url_info_card) {
+			this._doc_url_info_card = new InfoCard({
+				label_area: this.label_area,
+				label_span: this.label_span,
+				df: this.df,
+			});
+		}
 	}
 
 	set_description(description) {

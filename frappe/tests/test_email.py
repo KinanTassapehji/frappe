@@ -57,16 +57,20 @@ class TestEmail(IntegrationTestCase):
 	def test_send_after(self):
 		self.test_email_queue(send_after=1)
 		from frappe.email.queue import flush
+		from frappe.utils import add_to_date, now_datetime
 
-		flush()
+		with self.freeze_time(add_to_date(now_datetime(), seconds=12)):
+			flush()
 		email_queue = frappe.db.sql("""select name from `tabEmail Queue` where status='Sent'""", as_dict=1)
 		self.assertEqual(len(email_queue), 0)
 
 	def test_flush(self):
 		self.test_email_queue()
 		from frappe.email.queue import flush
+		from frappe.utils import add_to_date, now_datetime
 
-		flush()
+		with self.freeze_time(add_to_date(now_datetime(), seconds=12)):
+			flush()
 		email_queue = frappe.db.sql("""select name from `tabEmail Queue` where status='Sent'""", as_dict=1)
 		self.assertEqual(len(email_queue), 1)
 		queue_recipients = [
@@ -369,14 +373,15 @@ class TestEmail(IntegrationTestCase):
 			patch("frappe.sendmail") as mocked_sendmail,
 			patch("frappe.local.login_manager", create=True) as mocked_lm,
 		):
-			reason = "Testing Security Alert"
-			impersonate(user=target_user, reason=reason)
+			with patch("frappe.db.exists", return_value=True):
+				reason = "Testing Security Alert"
+				impersonate(user=target_user, reason=reason)
 
-			self.assertTrue(mocked_sendmail.called)
-			_, kwargs = mocked_sendmail.call_args
-			self.assertIn(target_user, kwargs.get("recipients"))
-			self.assertIn(reason, kwargs.get("content"))
-			mocked_lm.impersonate.assert_called_with(target_user)
+				self.assertTrue(mocked_sendmail.called)
+				_, kwargs = mocked_sendmail.call_args
+				self.assertIn(target_user, kwargs.get("recipients"))
+				self.assertIn(reason, kwargs.get("content"))
+				mocked_lm.impersonate.assert_called_with(target_user)
 
 		# Cleanup
 		frappe.db.delete("User", {"email": target_user})
